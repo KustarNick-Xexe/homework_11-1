@@ -13,14 +13,12 @@ const initialState = {
 };
 
 const factsSlice = createSlice({
-  name: '@@facts',
+  name: '@@starWars',
   initialState,
   reducers: {
     selectFact(state, action) {
-      const numFacts = action.payload;
-      console.log(numFacts)
+      const numFacts = action.payload > 5 ? 5 : action.payload < 0 ? 0 : action.payload;
       const newFacts = state.facts.slice(0, numFacts);
-      console.log(newFacts)
       state.selectedFacts = newFacts;
     },
   },

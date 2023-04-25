@@ -9,7 +9,7 @@ import factsReducer from './factsSlice';
 
 const store = configureStore({
   reducer: {
-    facts: factsReducer,
+    info: factsReducer,
   },
   //middleware: createLogger,
 });

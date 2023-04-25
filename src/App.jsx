@@ -5,13 +5,12 @@ import { selectFact } from './factsSlice';
 function App() {
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
-  const selectedFacts = useSelector(state => state.selectedFacts);
+  const selectedFacts = useSelector(state =>{ return state.info.selectedFacts} );
 
   const handleSubmit = (event) => {
       event.preventDefault();
       const { count } = event.target;
       dispatch(selectFact(count.value));
-      console.log(selectedFacts)
   };
 
   const handleChange = (event) => {
@@ -27,7 +26,7 @@ function App() {
             <button className=' bg-slate-900 text-gray-50 m-4 px-4 py-1' type='submit'>Show</button>
       </form>
       <ul>
-        { selectedFacts?.map( fact => <li key={ fact.id }>{ fact.text }</li>) }
+        { selectedFacts?.map( fact => <li className='mb-8' key={ fact.id }>{ fact.text }</li>) }
       </ul>
     </>
   )
